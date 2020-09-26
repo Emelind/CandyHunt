@@ -71,18 +71,26 @@ class MainActivity : AppCompatActivity() {
         playerName= playerNameEditText.text.toString()
         playerNameEditText.visibility = View.INVISIBLE
 
+        // Makes the TextViews with alternatives empty for next location, as the number of alternatives differ
         alternative1TextView.text = ""
         alternative2TextView.text = ""
         alternative3TextView.text = ""
 
+        // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
         if(locationNow.alternatives.size == 1) {
             locationNow = GameManager.locations[alternative1]
+
+        // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
+        // option will be the new locationNow
         } else if(locationNow.alternatives.size == 2) {
             if (number == 1 || number == 2 || number == 3) {
                 locationNow = GameManager.locations[alternative1]
             } else if (number == 4 || number == 5 || number == 6) {
                 locationNow = GameManager.locations[alternative2]
             }
+
+        // Checks if the size of locationNow's list of alternatives is 3 - if so, the number decides which
+        // option will be the new locationNow
         } else if(locationNow.alternatives.size == 3) {
             if (number == 1 || number == 2) {
                 locationNow = GameManager.locations[alternative1]
@@ -92,10 +100,15 @@ class MainActivity : AppCompatActivity() {
                 locationNow = GameManager.locations[alternative3]
             }
         }
+
+        // Starts the new location
         startNewLocation()
 
     }
+
+    // Starts the new location
     fun startNewLocation() {
+
         // Changes the visibility of the rollDieButton and clears the numberTextView
         rollDieButton.visibility = View.VISIBLE
         numberTextView.text = ""
@@ -105,26 +118,35 @@ class MainActivity : AppCompatActivity() {
         titleTextView.text = locationNow.title
 
         // Finds the alternative locations for the new location
+        // If the alternative list size is 1, the rollDieButton is kept invisible, alternative1 is the
+        // only alternative for new location and is printed as "Next up.."
         if(locationNow.alternatives.size == 1) {
             rollDieButton.visibility = View.INVISIBLE
             alternative1 = locationNow.alternatives[0]
             alternative1TextView.text = getString(R.string.next_up, GameManager.locations[alternative1].title)
 
+        // If the list size is 2, the alternatives are stored in alternative1 and alternative2 and printed as
+        // potential newLocations depending on what one will roll through RollDieButton
         } else if(locationNow.alternatives.size == 2) {
             alternative1 = locationNow.alternatives[0]
             alternative1TextView.text = getString(R.string.roll_1_to_3, GameManager.locations[alternative1].title)
             alternative2 = locationNow.alternatives[1]
             alternative2TextView.text = getString(R.string.roll_4_to_6, GameManager.locations[alternative2].title)
 
+        // If the list size is 3, the alternatives are stored in alternative1, alternative2 and alternative3 and printed as
+        // potential newLocations depending on what one will roll through RollDieButton
         } else if(locationNow.alternatives.size == 3) {
             alternative1 = locationNow.alternatives[0]
-            // LÄGG IN SOM OVAN
+            alternative1TextView.text = getString(R.string.roll_1_to_2, GameManager.locations[alternative1].title)
             alternative2 = locationNow.alternatives[1]
-            // LÄGG IN SOM OVAN
+            alternative2TextView.text = getString(R.string.roll_3_to_4, GameManager.locations[alternative2].title)
             alternative3 = locationNow.alternatives[2]
-            // LÄGG IN SOM OVAN
+            alternative3TextView.text = getString(R.string.roll_5_to_6, GameManager.locations[alternative3].title)
         }
     }
+
     // EVENTUELLT - lägg till en number = 0 som kan styra om det går att trycka på continue-button eller inte
     // eventuellt lägg till en toaster som ger felmeddelande.
+    // Lägg till HP ?
+    // Lägg till möjlighet att spela highest roll ?
 }
