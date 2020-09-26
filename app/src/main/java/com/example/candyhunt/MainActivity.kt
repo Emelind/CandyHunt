@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     // Declaring other variables
     var number = 0
+    var playerName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +56,11 @@ class MainActivity : AppCompatActivity() {
         numberTextView.text = number.toString()
         // rollDieButton.visibility = View.INVISIBLE
     }
+    fun continueButton(view: View) {
+        // Stores the input in playerNameEditText in playerName variable
+        playerName= playerNameEditText.text.toString()
+        playerNameEditText.visibility = View.INVISIBLE
+    }
+
 
 }
