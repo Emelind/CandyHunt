@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">CandyHunt</string>
+
+    <!-- Button Strings -->
+    <string name="roll_die_button">Roll die</string>
+    <string name="continue_button">Continue</string>
+
+    <!-- Title Strings -->
+    <string name="title_starting_point">Starting Point</string>
+
+    <!-- Text Strings -->
+    <string name="next_up">Next up: %1$s</string>
+    <string name="roll_1_to_3">Roll 1-3: %1$s</string>
+    <string name="roll_4_to_6">Roll 4-6: %1$s</string>
+    <string name="roll_1_to_2">Roll 1-2: %1$s</string>
+    <string name="roll_3_to_4">Roll 3-4: %1$s</string>
+    <string name="roll_5_to_6">Roll 5-6: %1$s</string>
+
+
 </resources>
