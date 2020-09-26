@@ -27,5 +27,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Finds TextViews in layout
+        mainTextView = findViewById(R.id.mainTextView)
+        numberTextView = findViewById(R.id.numberTextView)
+        titleTextView = findViewById(R.id.titleTextView)
+        alternative1TextView = findViewById(R.id.alternative1TextView)
+        alternative2TextView = findViewById(R.id.alternative2TextView)
+        alternative3TextView = findViewById(R.id.alternative3TextView)
+
+        // Finds EditText in layout
+        playerNameEditText = findViewById(R.id.playerNameEditText)
+
+        // Finds Buttons in layout
+        rollDieButton = findViewById(R.id.rollDieButton)
+        continueButton = findViewById(R.id.continueButton)
+
     }
 }
