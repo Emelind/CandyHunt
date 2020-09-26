@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     // Declaring other variables
     var number = 0
     var playerName = ""
+    lateinit var locationNow: Location
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         // Finds Buttons in layout
         rollDieButton = findViewById(R.id.rollDieButton)
         continueButton = findViewById(R.id.continueButton)
+
+        locationNow = GameManager.locations[0]
+
+
 
     }
     // Rolls the die and puts the number in the number variable. Prints the number in
