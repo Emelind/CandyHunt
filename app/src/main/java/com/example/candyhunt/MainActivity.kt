@@ -50,21 +50,40 @@ class MainActivity : AppCompatActivity() {
         continueButton = findViewById(R.id.continueButton)
 
         locationNow = GameManager.locations[0]
-
+        startNewLocation()
 
 
     }
+
     // Rolls the die and puts the number in the number variable. Prints the number in
     // the numberTextView. Hides the rollDieButton.
     fun rollDie(view: View) {
         number = (1..6).random()
         numberTextView.text = number.toString()
-        // rollDieButton.visibility = View.INVISIBLE
+        rollDieButton.visibility = View.INVISIBLE
     }
+
+    // Changes the location stored in locationNow according to number rolled. Starts new location.
     fun continueButton(view: View) {
         // Stores the input in playerNameEditText in playerName variable
         playerName= playerNameEditText.text.toString()
         playerNameEditText.visibility = View.INVISIBLE
+
+        alternative1TextView.text = ""
+        alternative2TextView.text = ""
+        alternative3TextView.text = ""
+
+    }
+    fun startNewLocation() {
+        // Changes the visibility of the rollDieButton and clears the numberTextView
+        rollDieButton.visibility = View.VISIBLE
+        numberTextView.text = ""
+
+        // Prints the location text and title according to the new location
+        mainTextView.text = locationNow.text
+        titleTextView.text = locationNow.title
+
+
     }
 
 
