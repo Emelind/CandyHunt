@@ -53,7 +53,7 @@ object GameManager {
         var houseOfTheWickedWitch = Location(14, "House of the Wicked Witch", "You have arrived at the House of the Wicked Witch. You thought the candy would be here, but it is not.. The witch knows where the candy is but cannot decide whether to tell you or not. The witch lets the die decide if to send you to the candy, or let you walk away clueless.", listOf(16, 17))
         locations.add(houseOfTheWickedWitch)
 
-        var hubbaBubbaHill = Location(15, "Hubba Bubba Hill", "You are standing at the top of Hubba Bubba Hill but no candy as far as the eye can see. From the top of the hill, you see all the way to the House of the Wicked Witch and the Fanta Fields. Let the die decide where to go next.", listOf(18, 14, 16))
+        var hubbaBubbaHill = Location(15, "Hubba Bubba Hill", "You are standing at the top of Hubba Bubba Hill but no candy as far as the eye can see. From the top of the hill, you see all the way to the House of the Wicked Witch and the Fanta Fields. Let the die decide where to go next.", listOf(16, 14, 18))
         locations.add(hubbaBubbaHill)
 
         var fantaFields = Location(16, "Fanta Fields", "You are strolling across the Fanta Fields, just looking around and enjoying the nice and sunny weather. From a distance, you can see the Castle of the King and decide to head there to tell the King that you will stop looking for the candy. It is nowhere to be found..", listOf(17))

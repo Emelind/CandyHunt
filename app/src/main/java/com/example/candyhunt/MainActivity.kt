@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var alternative1TextView: TextView
     lateinit var alternative2TextView: TextView
     lateinit var alternative3TextView: TextView
+    lateinit var hpTextView: TextView
 
     // Declaring EditText
     lateinit var playerNameEditText: EditText
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     var alternative1: Int = -1
     var alternative2: Int = -1
     var alternative3: Int = -1
+    var hp = 5
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Finds TextViews in layout
+        hpTextView = findViewById(R.id.hpTextView)
         mainTextView = findViewById(R.id.mainTextView)
         numberTextView = findViewById(R.id.numberTextView)
         titleTextView = findViewById(R.id.titleTextView)
@@ -51,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         // Finds Buttons in layout
         rollDieButton = findViewById(R.id.rollDieButton)
         continueButton = findViewById(R.id.continueButton)
+
+        hpTextView.text = getString(R.string.hp, hp.toString())
 
         // Sets the first location in list locations as locationNow and starts locationNow
         locationNow = GameManager.locations[0]
@@ -82,15 +87,25 @@ class MainActivity : AppCompatActivity() {
         alternative2TextView.text = ""
         alternative3TextView.text = ""
 
-
         // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
         if(locationNow.alternatives.size == 1) {
+            if(locationNow == GameManager.locations[7]) {
+                hp -= 1
+                hpTextView.text = getString(R.string.hp, hp.toString())
+            } else if(locationNow == GameManager.locations[10]) {
+                hp += 1
+                hpTextView.text = getString(R.string.hp, hp.toString())
+            }
             locationNow = GameManager.locations[alternative1]
 
         // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
         // option will be the new locationNow
         } else if(locationNow.alternatives.size == 2) {
             if (number == 1 || number == 2 || number == 3) {
+                if(locationNow == GameManager.locations[5] || locationNow == GameManager.locations[9] || locationNow == GameManager.locations[11] || locationNow == GameManager.locations[13]) {
+                    hp -= 1
+                    hpTextView.text = getString(R.string.hp, hp.toString())
+                }
                 locationNow = GameManager.locations[alternative1]
             } else if (number == 4 || number == 5 || number == 6) {
                 locationNow = GameManager.locations[alternative2]
@@ -104,6 +119,10 @@ class MainActivity : AppCompatActivity() {
             } else if (number == 3 || number == 4) {
                 locationNow = GameManager.locations[alternative2]
             } else if(number == 5 || number == 6) {
+                if (locationNow == GameManager.locations[15]) {
+                    hp -= 1
+                    hpTextView.text = getString(R.string.hp, hp.toString())
+                }
                 locationNow = GameManager.locations[alternative3]
             }
         }
@@ -152,8 +171,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-//  lägg till en variabel som kan styra om det går att trycka på continue-button eller inte
-//  eventuellt lägg till en toaster som ger felmeddelande.
+
 //  Lägg till HP ?
-//  Lägg till möjlighet att spela highest roll ?
+
 //  Skicka med playerName till noteFromTheKing och startGame location ??

@@ -12,6 +12,7 @@
     <string name="roll_1_to_2">Roll 1-2: %1$s</string>
     <string name="roll_3_to_4">Roll 3-4: %1$s</string>
     <string name="roll_5_to_6">Roll 5-6: %1$s</string>
+    <string name="hp">HP: %1$s</string>
 
     <!-- Location title Strings -->
     <string name="immigration_form_title">Immigration Form</string>
