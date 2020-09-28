@@ -10,13 +10,13 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     // DeclaringTextViews
+    lateinit var hpTextView: TextView
     lateinit var titleTextView: TextView
     lateinit var mainTextView: TextView
     lateinit var numberTextView: TextView
     lateinit var alternative1TextView: TextView
     lateinit var alternative2TextView: TextView
     lateinit var alternative3TextView: TextView
-    lateinit var hpTextView: TextView
 
     // Declaring EditText
     lateinit var playerNameEditText: EditText
@@ -60,77 +60,82 @@ class MainActivity : AppCompatActivity() {
         // Sets the first location in list locations as locationNow and starts locationNow
         locationNow = GameManager.locations[0]
         startNewLocation()
-
     }
 
     // Rolls the die and puts the number in the number variable. Prints the number in
     // the numberTextView. Hides the rollDieButton.
     fun rollDie(view: View) {
         number = (1..6).random()
-        numberTextView.text = number.toString()
+        numberTextView.text = getString(R.string.you_rolled, number.toString())
         rollDieButton.visibility = View.INVISIBLE
         continueButton.visibility = View.VISIBLE
     }
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
     fun continueButton(view: View) {
+        if (hp == 0) {
+            locationNow = GameManager.locations[19]
+        } else {
 
-        // Hides the continueButton when clicked, until next location is started
-        continueButton.visibility = View.INVISIBLE
+            // Hides the continueButton when clicked, until next location is started
+            continueButton.visibility = View.INVISIBLE
 
-        // Stores the input in playerNameEditText in playerName variable
-        playerName= playerNameEditText.text.toString()
-        playerNameEditText.visibility = View.INVISIBLE
+            // Stores the input in playerNameEditText in playerName variable
+            playerName = playerNameEditText.text.toString()
+            playerNameEditText.visibility = View.INVISIBLE
 
-        // Makes the TextViews with alternatives empty for next location, as the number of alternatives differ
-        alternative1TextView.text = ""
-        alternative2TextView.text = ""
-        alternative3TextView.text = ""
+            /*
+            resultTextView.visibility = View.INVISIBLE
+            */
+            // Makes the TextViews with alternatives empty for next location, as the number of alternatives differ
+            alternative1TextView.text = ""
+            alternative2TextView.text = ""
+            alternative3TextView.text = ""
 
-        // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
-        if(locationNow.alternatives.size == 1) {
-            if(locationNow == GameManager.locations[7]) {
-                hp -= 1
-                hpTextView.text = getString(R.string.hp, hp.toString())
-            } else if(locationNow == GameManager.locations[10]) {
-                hp += 1
-                hpTextView.text = getString(R.string.hp, hp.toString())
-            }
-            locationNow = GameManager.locations[alternative1]
-
-        // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
-        // option will be the new locationNow
-        } else if(locationNow.alternatives.size == 2) {
-            if (number == 1 || number == 2 || number == 3) {
-                if(locationNow == GameManager.locations[5] || locationNow == GameManager.locations[9] || locationNow == GameManager.locations[11] || locationNow == GameManager.locations[13]) {
+            // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
+            if (locationNow.alternatives.size == 1) {
+                if(locationNow.minusHp) {
                     hp -= 1
                     hpTextView.text = getString(R.string.hp, hp.toString())
-                }
-                locationNow = GameManager.locations[alternative1]
-            } else if (number == 4 || number == 5 || number == 6) {
-                if(locationNow == GameManager.locations[13]) {
+                } else if (locationNow == GameManager.locations[10]) {
                     hp += 1
                     hpTextView.text = getString(R.string.hp, hp.toString())
                 }
-                locationNow = GameManager.locations[alternative2]
-            }
-
-        // Checks if the size of locationNow's list of alternatives is 3 - if so, the number decides which
-        // option will be the new locationNow
-        } else if(locationNow.alternatives.size == 3) {
-            if (number == 1 || number == 2) {
                 locationNow = GameManager.locations[alternative1]
-            } else if (number == 3 || number == 4) {
-                locationNow = GameManager.locations[alternative2]
-            } else if(number == 5 || number == 6) {
-                if (locationNow == GameManager.locations[15]) {
-                    hp -= 1
-                    hpTextView.text = getString(R.string.hp, hp.toString())
+
+                // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
+                // option will be the new locationNow
+            } else if (locationNow.alternatives.size == 2) {
+                if (number == 1 || number == 2 || number == 3) {
+                    if(locationNow.minusHp) {
+                        hp -= 1
+                        hpTextView.text = getString(R.string.hp, hp.toString())
+                    }
+                    locationNow = GameManager.locations[alternative1]
+                } else if (number == 4 || number == 5 || number == 6) {
+                    if (locationNow == GameManager.locations[13]) {
+                        hp += 1
+                        hpTextView.text = getString(R.string.hp, hp.toString())
+                    }
+                    locationNow = GameManager.locations[alternative2]
                 }
-                locationNow = GameManager.locations[alternative3]
+
+                // Checks if the size of locationNow's list of alternatives is 3 - if so, the number decides which
+                // option will be the new locationNow
+            } else if (locationNow.alternatives.size == 3) {
+                if (number == 1 || number == 2) {
+                    locationNow = GameManager.locations[alternative1]
+                } else if (number == 3 || number == 4) {
+                    locationNow = GameManager.locations[alternative2]
+                } else if (number == 5 || number == 6) {
+                    if(locationNow.minusHp) {
+                        hp -= 1
+                        hpTextView.text = getString(R.string.hp, hp.toString())
+                    }
+                    locationNow = GameManager.locations[alternative3]
+                }
             }
         }
-
         // Starts the new location
         startNewLocation()
     }
@@ -151,9 +156,15 @@ class MainActivity : AppCompatActivity() {
         if(locationNow.alternatives.size == 1) {
             continueButton.visibility = View.VISIBLE
             rollDieButton.visibility = View.INVISIBLE
-            // and alternative1 is the only alternative for new location and is printed as "Next up.."
-            alternative1 = locationNow.alternatives[0]
-            alternative1TextView.text = getString(R.string.next_up, GameManager.locations[alternative1].title)
+
+            //Checks special cases for what will be printed in alternativeTextViews
+            if(locationNow == GameManager.locations[17]) {
+                alternative1TextView.text = ""
+            } else {
+            //If not a special case, alternative1 is the only alternative for new location and is printed as "Next up.."
+                alternative1 = locationNow.alternatives[0]
+                alternative1TextView.text = getString(R.string.next_up, GameManager.locations[alternative1].title)
+            }
 
         // If the list size is 2, the alternatives are stored in alternative1 and alternative2
         } else if(locationNow.alternatives.size == 2) {
