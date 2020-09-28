@@ -14,6 +14,14 @@
     <string name="roll_5_to_6">Roll 5-6: %1$s</string>
     <string name="hp">HP: %1$s</string>
 
+    <!-- Special location title Strings -->
+    <string name="bridge_falls_apart_title">Roll 1-3: Bridge Falls Apart</string>
+    <string name="cross_safely_title">Roll 4-6: You Can Cross Safely</string>
+    <string name="harmful_title">Roll 1-3: Harmful Sip</string>
+    <string name="energizing_title">Roll 4-6: Energizing Sip</string>
+    <string name="to_the_candy_title">Roll 1-3: Sends You To The Candy</string>
+    <string name="clueless_title">Roll 4-6: Walk Away Clueless</string>
+
     <!-- Location title Strings -->
     <string name="immigration_form_title">Immigration Form</string>
     <string name="note_from_the_king_title">Note from the King</string>
@@ -47,8 +55,7 @@
     <string name="walk_to_the_mountain_text">You twisted your ankle on the way to the mountain :( Roll the die to see if you have to go back and try the river instead, or if you can continue to the mountain.</string>
     <!-- Lägga till funktion för Highest Roll? Om inte, redigera texten nedan -->
     <string name="swim_from_start_text">You are swimming across the river and meet a competitive fish. The fish wants to play "Highest Roll" and you agree. You will lose 1 HP if you roll lower than, or the same number as the fish. The fish has no hands so you will roll for him too.</string>
-    <!-- Lägg till (-1 HP) ?? -->
-    <string name="try_the_boat_text">You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock! Luckily, you are close to the shore and can swim to safety on land.</string>
+    <string name="try_the_boat_text">You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock (- 1 HP)! Luckily, you are close to the shore and can swim to safety on land.</string>
     <string name="chocolate_mountain_text">You have been walking up and down the mountain but found no candy. You have spotted the House of the Wicked Witch from the top and plan to go there. To get closer you have to cross the river. Should you use the Cracker Bridge or swim across? Let the die decide!</string>
     <!-- Lägg till (-1 HP) ?? beroende på vad man slår.. Om inte, redigera text-->
     <string name="lollipop_forest_text">You are walking around in Lollipop Forest looking for candy. An angry unicorn attacks!\nRoll higher than 3 to avoid the attack. If you roll 3 or less, -1 HP.</string>

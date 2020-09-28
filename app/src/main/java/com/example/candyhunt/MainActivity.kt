@@ -108,6 +108,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 locationNow = GameManager.locations[alternative1]
             } else if (number == 4 || number == 5 || number == 6) {
+                if(locationNow == GameManager.locations[13]) {
+                    hp += 1
+                    hpTextView.text = getString(R.string.hp, hp.toString())
+                }
                 locationNow = GameManager.locations[alternative2]
             }
 
@@ -143,21 +147,35 @@ class MainActivity : AppCompatActivity() {
         titleTextView.text = locationNow.title
 
         // Finds the alternative locations for the new location
-        // If the alternative list size is 1, the rollDieButton is kept invisible, the continueButton is kept visible,
-        // and alternative1 is the only alternative for new location and is printed as "Next up.."
+        // If the alternative list size is 1, the rollDieButton is kept invisible, the continueButton is kept visible
         if(locationNow.alternatives.size == 1) {
             continueButton.visibility = View.VISIBLE
             rollDieButton.visibility = View.INVISIBLE
+            // and alternative1 is the only alternative for new location and is printed as "Next up.."
             alternative1 = locationNow.alternatives[0]
             alternative1TextView.text = getString(R.string.next_up, GameManager.locations[alternative1].title)
 
-        // If the list size is 2, the alternatives are stored in alternative1 and alternative2 and printed as
-        // potential newLocations depending on what one will roll through RollDieButton
+        // If the list size is 2, the alternatives are stored in alternative1 and alternative2
         } else if(locationNow.alternatives.size == 2) {
             alternative1 = locationNow.alternatives[0]
-            alternative1TextView.text = getString(R.string.roll_1_to_3, GameManager.locations[alternative1].title)
             alternative2 = locationNow.alternatives[1]
-            alternative2TextView.text = getString(R.string.roll_4_to_6, GameManager.locations[alternative2].title)
+
+            //Checks special cases for what will be printed in alternativeTextViews
+            if(locationNow == GameManager.locations[11]) {
+                alternative1TextView.text = getString(R.string.bridge_falls_apart_title)
+                alternative2TextView.text = getString(R.string.cross_safely_title)
+            } else if(locationNow == GameManager.locations[13]) {
+                alternative1TextView.text = getString(R.string.harmful_title)
+                alternative2TextView.text = getString(R.string.energizing_title)
+            } else if(locationNow == GameManager.locations[14]) {
+                alternative1TextView.text = getString(R.string.to_the_candy_title)
+                alternative2TextView.text = getString(R.string.clueless_title)
+            } else {
+
+                // The alternatives are printed as potential coming up locations depending on what one will roll
+                alternative1TextView.text = getString(R.string.roll_1_to_3, GameManager.locations[alternative1].title)
+                alternative2TextView.text = getString(R.string.roll_4_to_6, GameManager.locations[alternative2].title)
+            }
 
         // If the list size is 3, the alternatives are stored in alternative1, alternative2 and alternative3 and printed as
         // potential newLocations depending on what one will roll through RollDieButton
@@ -172,6 +190,14 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-//  Lägg till HP ?
+// Skicka med playerName till noteFromTheKing och startGame location ?? Funkar om nedan funkar.
+// Lägg in strings från string-xml i GameManager
 
-//  Skicka med playerName till noteFromTheKing och startGame location ??
+// Fixa texten på Lollipop (9) - vad som händer i de olika alternativen
+// Ändra texten från att få välja location i SourSnake(12)
+
+// FIXA HIGHEST ROLL PÅ SWIM FROM START (6)
+// FIXA HP PÅ SOUR SNAKE (12) ?
+
+// Go straight to GameOver when HP = 0
+// Hide view of "Next up" in kingsCastle(17)

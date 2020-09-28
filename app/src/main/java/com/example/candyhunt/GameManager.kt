@@ -29,7 +29,7 @@ object GameManager {
         var swimFromStart = Location(6, "Swim from Start", "You are swimming across the river and meet a competitive fish. The fish wants to play \"Highest Roll\" and you agree. You will lose 1 HP if you roll lower than, or the same number as the fish. The fish has no hands so you will roll for him too.", listOf(9))
         locations.add(swimFromStart)
 
-        var tryTheBoat = Location(7, "Try the Boat", "You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock! Luckily, you are close to the shore and can swim to safety on land.", listOf(8))
+        var tryTheBoat = Location(7, "Try the Boat", "You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock (- 1 HP)! Luckily, you are close to the shore and can swim to safety on land.", listOf(8))
         locations.add(tryTheBoat)
 
         var chocolateMountain = Location(8, "Chocolate Mountain", "You have been walking up and down the mountain but found no candy. You have spotted the House of the Wicked Witch from the top and plan to go there. To get closer you have to cross the river. Should you use the Cracker Bridge or swim across? Let the die decide!", listOf(10, 11))
@@ -41,7 +41,7 @@ object GameManager {
         var swimFromTheMountain = Location(10, "Swim from the Mountain", "You are swimming across the river. You take a sip and it turns out that the river is made of soda - energy boost + 1 HP.", listOf(12))
         locations.add(swimFromTheMountain)
 
-        var crossCrackerBridge = Location(11, "Cross Cracker Bridge", "You are slowly crossing the Cracker Bridge. It makes funny noises and is feeling a bit wobbly.\\n\\nThe die decides if the bridge falls apart or not. If the bridge holds, you will reach Caramel Lake. If not, you will fall into the river (-1 HP) and will have to follow the stream to the Sour Snake Pit.", listOf(12, 13))
+        var crossCrackerBridge = Location(11, "Cross Cracker Bridge", "You are slowly crossing the Cracker Bridge. It makes funny noises and is feeling a bit wobbly. The die decides if the bridge falls apart or not. If the bridge holds, you will reach Caramel Lake. If not, you will fall into the river (-1 HP) and will have to follow the stream to the Sour Snake Pit.", listOf(12, 13))
         locations.add(crossCrackerBridge)
 
         var sourSnakePit = Location(12, "Sour Snake Pit", "You have reached the Sour Snake Pit. The snakes are gamblers and want to eat you. They will let your die decide if they are going to eat you or let you go. If you roll a 4, they will eat you and you will lose all of your HP - Game Over. If you roll 1, 2, 3, 5 or 6, you are free to leave and can go to Hubba Bubba Hill or Fanta Fields.", listOf(15, 16))
@@ -50,7 +50,7 @@ object GameManager {
         var caramelLake = Location(13, "Caramel Lake", "You are looking out over Caramel Lake and it looks so yummy. The Wicked Witch has put a spell on the lake, making every second sip harmful. The die decides if you take a harmful sip (-1 HP), or an energizing sip (+1 HP). If you take a harmful sip, you will wobble to the Sour Snake Pit. If the sip is energizing, you will run to Lollipop Forest.", listOf(12, 9))
         locations.add(caramelLake)
 
-        var houseOfTheWickedWitch = Location(14, "House of the Wicked Witch", "You have arrived at the House of the Wicked Witch. You thought the candy would be here, but it is not.. The witch knows where the candy is but cannot decide whether to tell you or not. The witch lets the die decide if to send you to the candy, or let you walk away clueless.", listOf(16, 17))
+        var houseOfTheWickedWitch = Location(14, "House of the Wicked Witch", "You have arrived at the House of the Wicked Witch. You thought the candy would be here, but it is not.. The witch knows where the candy is but cannot decide whether to tell you or not. The witch lets the die decide if to send you to the candy, or let you walk away clueless.", listOf(17, 16))
         locations.add(houseOfTheWickedWitch)
 
         var hubbaBubbaHill = Location(15, "Hubba Bubba Hill", "You are standing at the top of Hubba Bubba Hill but no candy as far as the eye can see. From the top of the hill, you see all the way to the House of the Wicked Witch and the Fanta Fields. Let the die decide where to go next.", listOf(16, 14, 18))
