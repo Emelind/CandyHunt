@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     var alternative2: Int = -1
     var alternative3: Int = -1
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         rollDieButton = findViewById(R.id.rollDieButton)
         continueButton = findViewById(R.id.continueButton)
 
+        // Sets the first location in list locations as locationNow and starts locationNow
         locationNow = GameManager.locations[0]
         startNewLocation()
 
@@ -63,10 +64,15 @@ class MainActivity : AppCompatActivity() {
         number = (1..6).random()
         numberTextView.text = number.toString()
         rollDieButton.visibility = View.INVISIBLE
+        continueButton.visibility = View.VISIBLE
     }
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
     fun continueButton(view: View) {
+
+        // Hides the continueButton when clicked, until next location is started
+        continueButton.visibility = View.INVISIBLE
+
         // Stores the input in playerNameEditText in playerName variable
         playerName= playerNameEditText.text.toString()
         playerNameEditText.visibility = View.INVISIBLE
@@ -75,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         alternative1TextView.text = ""
         alternative2TextView.text = ""
         alternative3TextView.text = ""
+
 
         // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
         if(locationNow.alternatives.size == 1) {
@@ -103,7 +110,6 @@ class MainActivity : AppCompatActivity() {
 
         // Starts the new location
         startNewLocation()
-
     }
 
     // Starts the new location
@@ -118,9 +124,10 @@ class MainActivity : AppCompatActivity() {
         titleTextView.text = locationNow.title
 
         // Finds the alternative locations for the new location
-        // If the alternative list size is 1, the rollDieButton is kept invisible, alternative1 is the
-        // only alternative for new location and is printed as "Next up.."
+        // If the alternative list size is 1, the rollDieButton is kept invisible, the continueButton is kept visible,
+        // and alternative1 is the only alternative for new location and is printed as "Next up.."
         if(locationNow.alternatives.size == 1) {
+            continueButton.visibility = View.VISIBLE
             rollDieButton.visibility = View.INVISIBLE
             alternative1 = locationNow.alternatives[0]
             alternative1TextView.text = getString(R.string.next_up, GameManager.locations[alternative1].title)
@@ -144,9 +151,9 @@ class MainActivity : AppCompatActivity() {
             alternative3TextView.text = getString(R.string.roll_5_to_6, GameManager.locations[alternative3].title)
         }
     }
-
-    // EVENTUELLT - lägg till en number = 0 som kan styra om det går att trycka på continue-button eller inte
-    // eventuellt lägg till en toaster som ger felmeddelande.
-    // Lägg till HP ?
-    // Lägg till möjlighet att spela highest roll ?
 }
+//  lägg till en variabel som kan styra om det går att trycka på continue-button eller inte
+//  eventuellt lägg till en toaster som ger felmeddelande.
+//  Lägg till HP ?
+//  Lägg till möjlighet att spela highest roll ?
+//  Skicka med playerName till noteFromTheKing och startGame location ??

@@ -5,9 +5,6 @@
     <string name="roll_die_button">Roll die</string>
     <string name="continue_button">Continue</string>
 
-    <!-- Title Strings -->
-    <string name="title_starting_point">Starting Point</string>
-
     <!-- Text Strings -->
     <string name="next_up">Next up: %1$s</string>
     <string name="roll_1_to_3">Roll 1-3: %1$s</string>
@@ -16,5 +13,58 @@
     <string name="roll_3_to_4">Roll 3-4: %1$s</string>
     <string name="roll_5_to_6">Roll 5-6: %1$s</string>
 
+    <!-- Location title Strings -->
+    <string name="immigration_form_title">Immigration Form</string>
+    <string name="note_from_the_king_title">Note from the King</string>
+    <string name="start_game_title">Start Game</string>
+    <string name="starting_point_title">Starting Point</string>
+    <string name="cross_river_title">Cross River</string>
+    <string name="walk_to_the_mountain_title">Walk to the Mountain</string>
+    <string name="swim_from_start_title">Swim from Start</string>
+    <string name="try_the_boat_title">Try the Boat</string>
+    <string name="chocolate_mountain_title">Chocolate Mountain</string>
+    <string name="lollipop_forest_title">Lollipop Forest</string>
+    <string name="swim_from_the_mountain_title">Swim from the Mountain</string>
+    <string name="cross_cracker_bridge_title">Cross Cracker Bridge</string>
+    <string name="sour_snake_pit_title">Sour Snake Pit</string>
+    <string name="caramel_lake_title">Caramel Lake</string>
+    <string name="house_of_the_wicked_witch_title">House of the Wicked Witch</string>
+    <string name="hubba_bubba_hill_title">Hubba Bubba Hill</string>
+    <string name="fanta_fields_title">Fanta Fields</string>
+    <string name="castle_of_the_king_title">Castle of the King</string>
+    <string name="cotton_candy_cave_title">Cotton Candy Cave</string>
+    <string name="game_over_title">Game Over</string>
+
+    <!-- Location text Strings -->
+    <string name="immigration_form_text">Enter Your Name:</string>
+    <!-- Lägg in PlayerName efter "Dear.." och "Thank you, " ?? -->
+    <string name="note_from_the_king_text">Dear , Good thing you are here. Someone has stolen all of our candy! Can you help us to find it? We do not have much for weapons, but you will get one die to guide you on the candy hunt.</string>
+    <string name="start_game_text">Thank you, . You will start with 5 HP. Game Over when HP = 0. Let the candy hunt begin. Best of luck! /The Candy King</string>
+    <string name="starting_point_text">You cannot decide whether to cross the river of if to walk towards the mountain. Let the die decide.</string>
+    <string name="cross_river_text">There is a boat by the river but you do not know if it is working properly. Should you take a chance and try the boat or swim across across the river?</string>
+    <!-- Lägg till (-1 HP) ?? -->
+    <string name="walk_to_the_mountain_text">You twisted your ankle on the way to the mountain :( Roll the die to see if you have to go back and try the river instead, or if you can continue to the mountain.</string>
+    <!-- Lägga till funktion för Highest Roll? Om inte, redigera texten nedan -->
+    <string name="swim_from_start_text">You are swimming across the river and meet a competitive fish. The fish wants to play "Highest Roll" and you agree. You will lose 1 HP if you roll lower than, or the same number as the fish. The fish has no hands so you will roll for him too.</string>
+    <!-- Lägg till (-1 HP) ?? -->
+    <string name="try_the_boat_text">You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock! Luckily, you are close to the shore and can swim to safety on land.</string>
+    <string name="chocolate_mountain_text">You have been walking up and down the mountain but found no candy. You have spotted the House of the Wicked Witch from the top and plan to go there. To get closer you have to cross the river. Should you use the Cracker Bridge or swim across? Let the die decide!</string>
+    <!-- Lägg till (-1 HP) ?? beroende på vad man slår.. Om inte, redigera text-->
+    <string name="lollipop_forest_text">You are walking around in Lollipop Forest looking for candy. An angry unicorn attacks!\nRoll higher than 3 to avoid the attack. If you roll 3 or less, -1 HP.</string>
+    <!-- Lägg till (+1 HP) ?? -->
+    <string name="swim_from_the_mountain_text">You are swimming across the river. You take a sip and it turns out that the river is made of soda - energy boost + 1 HP.</string>
+    <!-- Lägg till (-1 HP) ?? -->
+    <string name="cross_cracker_bridge_text">You are slowly crossing the Cracker Bridge. It makes funny noises and is feeling a bit wobbly.\n\nThe die decides if the bridge falls apart or not. If the bridge holds, you will reach Caramel Lake. If not, you will fall into the river (-1 HP) and will have to follow the stream to the Sour Snake Pit.</string>
+    <!-- Lägg till HP = 0 funktion ?? Om inte, redigera texten nedan-->
+    <string name="sour_snake_pit_text">You have reached the Sour Snake Pit. The snakes are gamblers and want to eat you. They will let your die decide if they are going to eat you or let you go. If you roll a 4, they will eat you and you will lose all of your HP - Game Over. If you roll 1, 2, 3, 5 or 6, you are free to leave and can go to Hubba Bubba Hill or Fanta Fields.</string>
+    <!-- Lägg till (-1 HP / + 1 HP) ?? -->
+    <string name="caramel_lake_text">You are looking out over Caramel Lake and it looks so yummy. The Wicked Witch has put a spell on the lake, making every second sip harmful. The die decides if you take a harmful sip (-1 HP), or an energizing sip (+1 HP). If you take a harmful sip, you will wobble to the Sour Snake Pit. If the sip is energizing, you will run to Lollipop Forest.</string>
+    <!-- Ändra text på "coming up"... ? Minska chansen att bli skickad till rätt ställe? -->
+    <string name="house_of_the_wicked_witch_text">You have arrived at the House of the Wicked Witch. You thought the candy would be here, but it is not.. The witch knows where the candy is but cannot decide whether to tell you or not. The witch lets the die decide if to send you to the candy, or let you walk away clueless.</string>
+    <string name="hubba_bubba_hill_text">You are standing at the top of Hubba Bubba Hill but no candy as far as the eye can see. From the top of the hill, you see all the way to the House of the Wicked Witch and the Fanta Fields. Let the die decide where to go next.</string>
+    <string name="fanta_fields_text">You are strolling across the Fanta Fields, just looking around and enjoying the nice and sunny weather. From a distance, you can see the Castle of the King and decide to head there to tell the King that you will stop looking for the candy. It is nowhere to be found..</string>
+    <string name="castle_of_the_king_text">You have reached the Castle of the King. But wait.. What is this? The castle is overflowing from candy of all sorts.. Turns out that the King has been hiding the candy all along to improve the health of the residents in Candy Land. In exchange for your silence, you get all the candy that you want.\n\nCongratulations, you solved the mystery of the stolen candy!</string>
+    <string name="cotton_candy_cave_text">Ouch, you fell into the Cotton Candy Cave. You are hurting from the fall but can still walk. After hours in the dark, you find your way out of the cave.. Turns out you have reached Lollipop Forest.</string>
+    <string name="game_over_text">Oh no! You are out of HP. Game Over!</string>
 
 </resources>
