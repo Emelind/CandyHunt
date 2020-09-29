@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity() {
         if (hp == 0) {
             locationNow = GameManager.locations[19]
         } else {
-
             // Hides the continueButton when clicked, until next location is started
             continueButton.visibility = View.INVISIBLE
 
@@ -87,10 +86,6 @@ class MainActivity : AppCompatActivity() {
             /*
             resultTextView.visibility = View.INVISIBLE
             */
-            // Makes the TextViews with alternatives empty for next location, as the number of alternatives differ
-            alternative1TextView.text = ""
-            alternative2TextView.text = ""
-            alternative3TextView.text = ""
 
             // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
             if (locationNow.alternatives.size == 1) {
@@ -128,7 +123,10 @@ class MainActivity : AppCompatActivity() {
                 } else if (number == 3 || number == 4) {
                     locationNow = GameManager.locations[alternative2]
                 } else if (number == 5 || number == 6) {
-                    if(locationNow.minusHp) {
+                    if (locationNow == GameManager.locations[12]) {
+                        hp = 0
+                        hpTextView.text = getString(R.string.hp, hp.toString())
+                    } else if (locationNow.minusHp) {
                         hp -= 1
                         hpTextView.text = getString(R.string.hp, hp.toString())
                     }
@@ -151,34 +149,46 @@ class MainActivity : AppCompatActivity() {
         mainTextView.text = locationNow.text
         titleTextView.text = locationNow.title
 
+
+        // Checks if hpTextView should be shown, according to showHp variable
+        if (locationNow.showHp) {
+            hpTextView.visibility = View.VISIBLE
+            hpTextView.text = getString(R.string.hp, hp.toString())
+        }  else {
+            hpTextView.visibility = View.INVISIBLE
+        }
+
         // Finds the alternative locations for the new location
         // If the alternative list size is 1, the rollDieButton is kept invisible, the continueButton is kept visible
-        if(locationNow.alternatives.size == 1) {
+        if (locationNow.alternatives.size == 1) {
             continueButton.visibility = View.VISIBLE
             rollDieButton.visibility = View.INVISIBLE
+            alternative2TextView.text = ""
+            alternative3TextView.text = ""
 
             //Checks special cases for what will be printed in alternativeTextViews
-            if(locationNow == GameManager.locations[17]) {
+            if (locationNow == GameManager.locations[17] || locationNow == GameManager.locations[19]) {
                 alternative1TextView.text = ""
             } else {
-            //If not a special case, alternative1 is the only alternative for new location and is printed as "Next up.."
+                //If not a special case, alternative1 is the only alternative for new location and is printed as "Next up.."
                 alternative1 = locationNow.alternatives[0]
                 alternative1TextView.text = getString(R.string.next_up, GameManager.locations[alternative1].title)
             }
 
         // If the list size is 2, the alternatives are stored in alternative1 and alternative2
-        } else if(locationNow.alternatives.size == 2) {
+        } else if (locationNow.alternatives.size == 2) {
             alternative1 = locationNow.alternatives[0]
             alternative2 = locationNow.alternatives[1]
+            alternative3TextView.text = ""
 
             //Checks special cases for what will be printed in alternativeTextViews
-            if(locationNow == GameManager.locations[11]) {
+            if (locationNow == GameManager.locations[11]) {
                 alternative1TextView.text = getString(R.string.bridge_falls_apart_title)
                 alternative2TextView.text = getString(R.string.cross_safely_title)
-            } else if(locationNow == GameManager.locations[13]) {
+            } else if (locationNow == GameManager.locations[13]) {
                 alternative1TextView.text = getString(R.string.harmful_title)
                 alternative2TextView.text = getString(R.string.energizing_title)
-            } else if(locationNow == GameManager.locations[14]) {
+            } else if (locationNow == GameManager.locations[14]) {
                 alternative1TextView.text = getString(R.string.to_the_candy_title)
                 alternative2TextView.text = getString(R.string.clueless_title)
             } else {
@@ -190,7 +200,7 @@ class MainActivity : AppCompatActivity() {
 
         // If the list size is 3, the alternatives are stored in alternative1, alternative2 and alternative3 and printed as
         // potential newLocations depending on what one will roll through RollDieButton
-        } else if(locationNow.alternatives.size == 3) {
+        } else if (locationNow.alternatives.size == 3) {
             alternative1 = locationNow.alternatives[0]
             alternative1TextView.text = getString(R.string.roll_1_to_2, GameManager.locations[alternative1].title)
             alternative2 = locationNow.alternatives[1]
