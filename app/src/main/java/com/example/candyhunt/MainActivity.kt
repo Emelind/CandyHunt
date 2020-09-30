@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
     // Declaring EditText
     lateinit var playerNameEditText: EditText
 
+    // Declaring ImageView
+    lateinit var imageView: ImageView
+
     // Declaring Buttons
     lateinit var continueButton: Button
     lateinit var rollDieButton: Button
@@ -29,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     var number = 0
     var playerName = ""
     lateinit var locationNow: Location
+    lateinit var gameOverLocation: Location
     var alternative1: Int = -1
     var alternative2: Int = -1
     var alternative3: Int = -1
@@ -36,12 +41,17 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var gameManager: GameManager
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         gameManager = GameManager(this)
+
+        for(location in gameManager.locations) {
+            if(location.gameOverLocation) {
+                gameOverLocation = location
+            }
+        }
 
         // Finds TextViews in layout
         hpTextView = findViewById(R.id.hpTextView)
@@ -54,6 +64,9 @@ class MainActivity : AppCompatActivity() {
 
         // Finds EditText in layout
         playerNameEditText = findViewById(R.id.playerNameEditText)
+
+        // Finds ImageView in layout
+        imageView = findViewById(R.id.imageView)
 
         // Finds Buttons in layout
         rollDieButton = findViewById(R.id.rollDieButton)
@@ -77,8 +90,8 @@ class MainActivity : AppCompatActivity() {
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
     fun continueButton(view: View) {
-        if(hp == 0) {
-            locationNow = gameManager.locations[19]
+        if (hp == 0) {
+            locationNow = gameOverLocation
         } else {
             // Hides the continueButton when clicked, until next location is started
             continueButton.visibility = View.INVISIBLE
@@ -96,7 +109,11 @@ class MainActivity : AppCompatActivity() {
                     hp += 1
                     hpTextView.text = getString(R.string.hp, hp.toString())
                 }
-                locationNow = gameManager.locations[alternative1]
+                if (hp == 0) {
+                    locationNow = gameOverLocation
+                } else {
+                    locationNow = gameManager.locations[alternative1]
+                }
 
             // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
             // option will be the new locationNow
@@ -107,7 +124,11 @@ class MainActivity : AppCompatActivity() {
                         hp -= 1
                         hpTextView.text = getString(R.string.hp, hp.toString())
                     }
-                    locationNow = gameManager.locations[alternative1]
+                    if (hp == 0) {
+                        locationNow = gameOverLocation
+                    } else {
+                        locationNow = gameManager.locations[alternative1]
+                    }
                 } else if (number == 4 || number == 5 || number == 6) {
                     if (locationNow.plusHp) {
                         hp += 1
@@ -132,7 +153,11 @@ class MainActivity : AppCompatActivity() {
                         hp -= 1
                         hpTextView.text = getString(R.string.hp, hp.toString())
                     }
-                    locationNow = gameManager.locations[alternative3]
+                    if (hp == 0) {
+                        locationNow = gameOverLocation
+                    } else {
+                        locationNow = gameManager.locations[alternative3]
+                    }
                 }
             }
         }
@@ -150,9 +175,10 @@ class MainActivity : AppCompatActivity() {
         // Prints the location text and title according to the new location
         mainTextView.text = locationNow.text
         titleTextView.text = locationNow.title
+        imageView.setImageDrawable(locationNow.image)
 
 
-        // Checks if hpTextView should be shown, according to showHp variable
+        // Checks if hpTextView should be shown, according to showHp variable in locationNow
         if (locationNow.showHp) {
             hpTextView.visibility = View.VISIBLE
             hpTextView.text = getString(R.string.hp, hp.toString())
@@ -169,8 +195,8 @@ class MainActivity : AppCompatActivity() {
             alternative3TextView.text = ""
 
             //Checks special cases for what will be printed in alternativeTextViews
-            if (locationNow == gameManager.locations[17] || locationNow == gameManager.locations[19]) {
-                alternative1TextView.text = ""
+            if (locationNow.alternativeAlternativeTexts) {
+                alternative1TextView.text = locationNow.alternativeAlternative1
             } else {
                 //If not a special case, alternative1 is the only alternative for new location and is printed as "Next up.."
                 alternative1 = locationNow.alternatives[0]
@@ -188,7 +214,6 @@ class MainActivity : AppCompatActivity() {
                 alternative1TextView.text = locationNow.alternativeAlternative1
                 alternative2TextView.text = locationNow.alternativeAlternative2
             }  else {
-
                 // The alternatives are printed as potential coming up locations depending on what one will roll
                 alternative1TextView.text = getString(R.string.roll_1_to_3, gameManager.locations[alternative1].title)
                 alternative2TextView.text = getString(R.string.roll_4_to_6, gameManager.locations[alternative2].title)
@@ -209,8 +234,5 @@ class MainActivity : AppCompatActivity() {
 
 
 // Skicka med playerName till noteFromTheKing och startGame location ?? Funkar om nedan funkar.
-// Lägg in strings från string-xml i GameManager
-
-// FIXA HIGHEST ROLL PÅ SWIM FROM START (6), lägg till "you're a good swimmer and has reached lollipop"
 
 // Highlight the textview of the alternative that gets "chosen".. Då behöver vi se till att inte numret från location innan ligger kvar.
