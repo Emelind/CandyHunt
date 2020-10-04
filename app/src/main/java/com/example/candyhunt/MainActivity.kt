@@ -1,5 +1,6 @@
 package com.example.candyhunt
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var alternative1TextView: TextView
     lateinit var alternative2TextView: TextView
     lateinit var alternative3TextView: TextView
+    lateinit var playerNameTextView: TextView
 
     // Declaring EditText
     lateinit var playerNameEditText: EditText
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         gameManager = GameManager(this)
 
+        // Finds the gameOverLocation based on var gameOverLocation in Location
         for(location in gameManager.locations) {
             if(location.gameOverLocation) {
                 gameOverLocation = location
@@ -61,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         alternative1TextView = findViewById(R.id.alternative1TextView)
         alternative2TextView = findViewById(R.id.alternative2TextView)
         alternative3TextView = findViewById(R.id.alternative3TextView)
+        playerNameTextView = findViewById(R.id.playerNameTextView)
 
         // Finds EditText in layout
         playerNameEditText = findViewById(R.id.playerNameEditText)
@@ -175,8 +179,20 @@ class MainActivity : AppCompatActivity() {
         // Prints the location text and title according to the new location
         mainTextView.text = locationNow.text
         titleTextView.text = locationNow.title
-        imageView.setImageDrawable(locationNow.image)
 
+        if(locationNow.showNameTextView){
+            playerNameTextView.visibility = View.VISIBLE
+            playerNameTextView.text = locationNow.nameText + " " + playerName + ","
+        } else {
+            playerNameTextView.visibility = View.INVISIBLE
+        }
+
+        // Set the image from locationNow in imageView
+        imageView.setImageDrawable(locationNow.image)
+        imageView.setOnClickListener {
+            val intent = Intent(this, ShowMapActivity::class.java)
+            startActivity(intent)
+        }
 
         // Checks if hpTextView should be shown, according to showHp variable in locationNow
         if (locationNow.showHp) {
@@ -232,7 +248,5 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-
-// Skicka med playerName till noteFromTheKing och startGame location ?? Funkar om nedan funkar.
 
 // Highlight the textview of the alternative that gets "chosen".. Då behöver vi se till att inte numret från location innan ligger kvar.
