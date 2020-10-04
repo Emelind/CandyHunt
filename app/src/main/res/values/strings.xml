@@ -4,6 +4,7 @@
     <!-- Button Strings -->
     <string name="roll_die_button">Roll die</string>
     <string name="continue_button">Continue</string>
+    <string name="try_again_button">Try again</string>
 
     <!-- Text Strings -->
     <string name="next_up">Next up: %1$s</string>

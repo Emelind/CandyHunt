@@ -94,38 +94,27 @@ class MainActivity : AppCompatActivity() {
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
     fun continueButton(view: View) {
-        if (hp == 0) {
-            locationNow = gameOverLocation
+        if(locationNow.endLocation) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         } else {
-            // Hides the continueButton when clicked, until next location is started
-            continueButton.visibility = View.INVISIBLE
+            if (hp == 0) {
+                locationNow = gameOverLocation
+            } else {
+                // Hides the continueButton when clicked, until next location is started
+                continueButton.visibility = View.INVISIBLE
 
-            // Stores the input in playerNameEditText in playerName variable
-            playerName = playerNameEditText.text.toString()
-            playerNameEditText.visibility = View.INVISIBLE
+                // Stores the input in playerNameEditText in playerName variable
+                playerName = playerNameEditText.text.toString()
+                playerNameEditText.visibility = View.INVISIBLE
 
-            // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
-            if (locationNow.alternatives.size == 1) {
-                if (locationNow.minusHp) {
-                    hp -= 1
-                    hpTextView.text = getString(R.string.hp, hp.toString())
-                } else if (locationNow.plusHp) {
-                    hp += 1
-                    hpTextView.text = getString(R.string.hp, hp.toString())
-                }
-                if (hp == 0) {
-                    locationNow = gameOverLocation
-                } else {
-                    locationNow = gameManager.locations[alternative1]
-                }
-
-            // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
-            // option will be the new locationNow
-            } else if (locationNow.alternatives.size == 2) {
-
-                if (number == 1 || number == 2 || number == 3) {
+                // Checks if the size of locationNow's list of alternatives is 1 - if so, that option is the new locationNow
+                if (locationNow.alternatives.size == 1) {
                     if (locationNow.minusHp) {
                         hp -= 1
+                        hpTextView.text = getString(R.string.hp, hp.toString())
+                    } else if (locationNow.plusHp) {
+                        hp += 1
                         hpTextView.text = getString(R.string.hp, hp.toString())
                     }
                     if (hp == 0) {
@@ -133,40 +122,56 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         locationNow = gameManager.locations[alternative1]
                     }
-                } else if (number == 4 || number == 5 || number == 6) {
-                    if (locationNow.plusHp) {
-                        hp += 1
-                        hpTextView.text = getString(R.string.hp, hp.toString())
-                    }
-                    locationNow = gameManager.locations[alternative2]
-                }
 
-            // Checks if the size of locationNow's list of alternatives is 3 - if so, the number decides which
-            // option will be the new locationNow
-            } else if (locationNow.alternatives.size == 3) {
+                    // Checks if the size of locationNow's list of alternatives is 2 - if so, the number decides which
+                    // option will be the new locationNow
+                } else if (locationNow.alternatives.size == 2) {
 
-                if (number == 1 || number == 2) {
-                    locationNow = gameManager.locations[alternative1]
-                } else if (number == 3 || number == 4) {
-                    locationNow = gameManager.locations[alternative2]
-                } else if (number == 5 || number == 6) {
-                    if (locationNow.zeroHp) {
-                        hp = 0
-                        hpTextView.text = getString(R.string.hp, hp.toString())
-                    } else if (locationNow.minusHp) {
-                        hp -= 1
-                        hpTextView.text = getString(R.string.hp, hp.toString())
+                    if (number == 1 || number == 2 || number == 3) {
+                        if (locationNow.minusHp) {
+                            hp -= 1
+                            hpTextView.text = getString(R.string.hp, hp.toString())
+                        }
+                        if (hp == 0) {
+                            locationNow = gameOverLocation
+                        } else {
+                            locationNow = gameManager.locations[alternative1]
+                        }
+                    } else if (number == 4 || number == 5 || number == 6) {
+                        if (locationNow.plusHp) {
+                            hp += 1
+                            hpTextView.text = getString(R.string.hp, hp.toString())
+                        }
+                        locationNow = gameManager.locations[alternative2]
                     }
-                    if (hp == 0) {
-                        locationNow = gameOverLocation
-                    } else {
-                        locationNow = gameManager.locations[alternative3]
+
+                    // Checks if the size of locationNow's list of alternatives is 3 - if so, the number decides which
+                    // option will be the new locationNow
+                } else if (locationNow.alternatives.size == 3) {
+
+                    if (number == 1 || number == 2) {
+                        locationNow = gameManager.locations[alternative1]
+                    } else if (number == 3 || number == 4) {
+                        locationNow = gameManager.locations[alternative2]
+                    } else if (number == 5 || number == 6) {
+                        if (locationNow.zeroHp) {
+                            hp = 0
+                            hpTextView.text = getString(R.string.hp, hp.toString())
+                        } else if (locationNow.minusHp) {
+                            hp -= 1
+                            hpTextView.text = getString(R.string.hp, hp.toString())
+                        }
+                        if (hp == 0) {
+                            locationNow = gameOverLocation
+                        } else {
+                            locationNow = gameManager.locations[alternative3]
+                        }
                     }
                 }
             }
+            // Starts the new location
+            startNewLocation()
         }
-        // Starts the new location
-        startNewLocation()
     }
 
     // Starts the new location
@@ -200,6 +205,10 @@ class MainActivity : AppCompatActivity() {
             hpTextView.text = getString(R.string.hp, hp.toString())
         }  else {
             hpTextView.visibility = View.INVISIBLE
+        }
+
+        if(locationNow.endLocation) {
+            continueButton.text = getString(R.string.try_again_button)
         }
 
         // Finds the alternative locations for the new location
@@ -250,3 +259,4 @@ class MainActivity : AppCompatActivity() {
 
 
 // Highlight the textview of the alternative that gets "chosen".. Då behöver vi se till att inte numret från location innan ligger kvar.
+// try again / exit game in castle and gameover
