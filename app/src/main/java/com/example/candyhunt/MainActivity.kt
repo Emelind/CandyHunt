@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
         numberTextView.text = getString(R.string.you_rolled, number.toString())
         rollDieButton.visibility = View.INVISIBLE
         continueButton.visibility = View.VISIBLE
+        frameNextLocation()
     }
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
@@ -211,6 +212,10 @@ class MainActivity : AppCompatActivity() {
             continueButton.text = getString(R.string.try_again_button)
         }
 
+        alternative1TextView.setBackground(null)
+        alternative2TextView.setBackground(null)
+        alternative3TextView.setBackground(null)
+
         // Finds the alternative locations for the new location
         // If the alternative list size is 1, the rollDieButton is kept invisible, the continueButton is kept visible
         if (locationNow.alternatives.size == 1) {
@@ -253,6 +258,30 @@ class MainActivity : AppCompatActivity() {
             alternative2TextView.text = getString(R.string.roll_3_to_4, gameManager.locations[alternative2].title)
             alternative3 = locationNow.alternatives[2]
             alternative3TextView.text = getString(R.string.roll_5_to_6, gameManager.locations[alternative3].title)
+        }
+    }
+
+    fun frameNextLocation() {
+        if(locationNow.alternatives.size == 1) {
+            alternative1TextView.setBackground(getDrawable(R.drawable.frame_layout))
+
+        } else if(locationNow.alternatives.size == 2) {
+
+            if(number == 1 || number == 2 || number == 3) {
+                alternative1TextView.setBackground(getDrawable(R.drawable.frame_layout))
+            } else if(number == 4 || number == 5 || number == 6) {
+                alternative2TextView.setBackground(getDrawable(R.drawable.frame_layout))
+            }
+
+        } else if(locationNow.alternatives.size == 3) {
+
+            if(number == 1 || number == 2) {
+                alternative1TextView.setBackground(getDrawable(R.drawable.frame_layout))
+            } else if(number == 3 || number == 4) {
+                alternative2TextView.setBackground(getDrawable(R.drawable.frame_layout))
+            } else if(number == 5 || number == 6) {
+                alternative3TextView.setBackground(getDrawable(R.drawable.frame_layout))
+            }
         }
     }
 }
