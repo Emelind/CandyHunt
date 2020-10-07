@@ -26,10 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     // Declaring ImageView
     lateinit var imageView: ImageView
+    lateinit var rollDieImageView: ImageView
+    lateinit var dieImageView: ImageView
 
     // Declaring Buttons
     lateinit var continueButton: Button
-    lateinit var rollDieButton: Button
 
     // Declaring other variables
     var number = 0
@@ -71,9 +72,10 @@ class MainActivity : AppCompatActivity() {
 
         // Finds ImageView in layout
         imageView = findViewById(R.id.imageView)
+        rollDieImageView = findViewById(R.id.rollDieImageView)
+        dieImageView = findViewById(R.id.dieImageView)
 
         // Finds Buttons in layout
-        rollDieButton = findViewById(R.id.rollDieButton)
         continueButton = findViewById(R.id.continueButton)
 
         hpTextView.text = getString(R.string.hp, hp.toString())
@@ -88,13 +90,23 @@ class MainActivity : AppCompatActivity() {
     fun rollDie(view: View) {
         number = (1..6).random()
         numberTextView.text = getString(R.string.you_rolled, number.toString())
-        rollDieButton.visibility = View.INVISIBLE
+        when(number) {
+            1 -> dieImageView.setImageResource(R.drawable.one_die)
+            2 -> dieImageView.setImageResource(R.drawable.two_die)
+            3 -> dieImageView.setImageResource(R.drawable.three_die)
+            4 -> dieImageView.setImageResource(R.drawable.four_die)
+            5 -> dieImageView.setImageResource(R.drawable.five_die)
+            6 -> dieImageView.setImageResource(R.drawable.six_die)
+        }
+        rollDieImageView.visibility = View.INVISIBLE
+        dieImageView.visibility = View.VISIBLE
         continueButton.visibility = View.VISIBLE
         frameNextLocation()
     }
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
     fun continueButton(view: View) {
+        //If the location is an endLocation, the function of the continueButton starts over the MainActivity
         if(locationNow.endLocation) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -179,7 +191,8 @@ class MainActivity : AppCompatActivity() {
     fun startNewLocation() {
 
         // Changes the visibility of the rollDieButton and clears the numberTextView
-        rollDieButton.visibility = View.VISIBLE
+        rollDieImageView.visibility = View.VISIBLE
+        dieImageView.visibility = View.INVISIBLE
         numberTextView.text = ""
 
         // Prints the location text and title according to the new location
@@ -212,6 +225,7 @@ class MainActivity : AppCompatActivity() {
             continueButton.text = getString(R.string.try_again_button)
         }
 
+        // Removes frames around alternativeTextViews
         alternative1TextView.setBackground(null)
         alternative2TextView.setBackground(null)
         alternative3TextView.setBackground(null)
@@ -220,7 +234,7 @@ class MainActivity : AppCompatActivity() {
         // If the alternative list size is 1, the rollDieButton is kept invisible, the continueButton is kept visible
         if (locationNow.alternatives.size == 1) {
             continueButton.visibility = View.VISIBLE
-            rollDieButton.visibility = View.INVISIBLE
+            rollDieImageView.visibility = View.INVISIBLE
             alternative2TextView.text = ""
             alternative3TextView.text = ""
 
@@ -285,7 +299,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-
-// Highlight the textview of the alternative that gets "chosen".. Då behöver vi se till att inte numret från location innan ligger kvar.
-// try again / exit game in castle and gameover

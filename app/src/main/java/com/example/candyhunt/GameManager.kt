@@ -34,7 +34,7 @@ class GameManager(val context: Context) {
         var tryTheBoat = Location(7, context.getString(R.string.try_the_boat_title), context.getString(R.string.try_the_boat_text), false, "",false, false,true, false, false,true, false, "", "", listOf(8), context.getDrawable(R.drawable.cropped_try_boat))
         locations.add(tryTheBoat)
 
-        var chocolateMountain = Location(8, context.getString(R.string.chocolate_mountain_title), context.getString(R.string.chocolate_mountain_text), false, "",false, false,true, false, false,true, false, "", "", listOf(10, 11), context.getDrawable(R.drawable.cropped_chocolate_mountain))
+        var chocolateMountain = Location(8, context.getString(R.string.chocolate_mountain_title), context.getString(R.string.chocolate_mountain_text), false, "",false, false,false, false, false,true, false, "", "", listOf(10, 11), context.getDrawable(R.drawable.cropped_chocolate_mountain))
         locations.add(chocolateMountain)
 
         var lollipopForest = Location(9, context.getString(R.string.lollipop_forest_title), context.getString(R.string.lollipop_forest_text), false, "",false, false,true, false, false,true, false, "", "", listOf(13, 14), context.getDrawable(R.drawable.cropped_lollipop_forest))

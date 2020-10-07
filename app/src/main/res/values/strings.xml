@@ -53,14 +53,13 @@
 
     <!-- Location text Strings -->
     <string name="immigration_form_text">Enter Your Name:</string>
-    <!-- Lägg in PlayerName efter "Dear.." och "Thank you, " ?? -->
-    <string name="note_from_the_king_text">Good thing you are here. Someone has stolen all of our candy! Can you help us to find it? We do not have much for weapons, but you will get one die to guide you on the candy hunt.</string>
-    <string name="start_game_text">You will start with 5 HP. Game Over when HP = 0. Let the candy hunt begin. Best of luck! /The Candy King</string>
-    <string name="starting_point_text">You cannot decide whether to cross the river of if to walk towards the mountain. Let the die decide.</string>
-    <string name="cross_river_text">There is a boat by the river but you do not know if it is working properly. Should you take a chance and try the boat or swim across across the river?</string>
-    <string name="walk_to_the_mountain_text">You twisted your ankle on the way to the mountain :( Roll the die to see if you have to go back and try the river instead (- 1 HP), or if you can continue to the mountain.</string>
+    <string name="note_from_the_king_text">Good thing you are here. Someone has stolen all of our candy! Can you help us find it?\n\nWe do not have much for weapons, but you will get one die to guide you on the candy hunt.</string>
+    <string name="start_game_text">You will start with 5 HP. Game Over when HP = 0. Let the candy hunt begin.\n\nBest of luck!\n\n/The Candy King</string>
+    <string name="starting_point_text">You cannot decide whether to cross the river or if to walk towards the mountain.\n\nLet the die decide.</string>
+    <string name="cross_river_text">There is a boat by the river but you do not know if it is working properly. Should you take a chance and try the boat or swim across the river?</string>
+    <string name="walk_to_the_mountain_text">You twisted your ankle on the way to the mountain!\n\nRoll the die to see if you have to go back and try the river instead (- 1 HP), or if you can continue to the mountain.</string>
     <string name="swim_from_start_text">You are peacefully swimming across the river when all of a sudden a shark appears. The shark tries to eat you (- 1 HP) but luckily is has no teeth from eating too much candy. You survive and have reached the shore of Lollipop Forest.</string>
-    <string name="try_the_boat_text">You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock (- 1 HP)! Luckily, you are close to the shore and can swim to safety on land.</string>
+    <string name="try_the_boat_text">You are on the boat but it turns out you cannot steer it. The boat takes you down the stream but crashes into a rock (- 1 HP)!\n\nLuckily, you are close to the shore and can swim to safety.</string>
     <string name="chocolate_mountain_text">You have been walking up and down the mountain but found no candy. You have spotted the House of the Wicked Witch from the top and plan to go there. To get closer you have to cross the river. Should you use the Cracker Bridge or swim across? Let the die decide!</string>
     <string name="lollipop_forest_text">You are walking around in Lollipop Forest looking for candy. An angry unicorn attacks! If you roll 3 or less, you get attacked (- 1 HP) and the unicorn kicks you all the way to Caramel Lake. Roll higher than 3 to avoid the attack, and run to the House of the Wicked Witch.</string>
     <string name="swim_from_the_mountain_text">You are swimming across the river. You take a sip and it turns out that the river is made of soda - energy boost + 1 HP.</string>
@@ -70,7 +69,7 @@
     <string name="house_of_the_wicked_witch_text">You have arrived at the House of the Wicked Witch. You thought the candy would be here, but it is not.. The witch knows where the candy is but cannot decide whether to tell you or not. The witch lets the die decide if to send you to the candy, or let you walk away clueless.</string>
     <string name="hubba_bubba_hill_text">You are standing at the top of Hubba Bubba Hill but no candy as far as the eye can see. From the top of the hill, you see all the way to the House of the Wicked Witch and the Fanta Fields. Let the die decide where to go next.</string>
     <string name="fanta_fields_text">You are strolling across the Fanta Fields, just looking around and enjoying the nice and sunny weather. From a distance, you can see the Castle of the King and decide to head there to tell the King that you will stop looking for the candy. It is nowhere to be found..</string>
-    <string name="castle_of_the_king_text">You have reached the Castle of the King. But wait.. What is this? The castle is overflowing from candy of all sorts.. Turns out that the King has been hiding the candy all along to improve the health of the residents in Candy Land. In exchange for your silence, you get all the candy that you want.\n\nCongratulations, you solved the mystery of the stolen candy!</string>
+    <string name="castle_of_the_king_text">You have reached the Castle of the King. But wait.. What is this? The castle is overflowing with candy of all sorts.. Turns out that the King has been hiding the candy all along to improve the health of the residents in Candy Land. In exchange for your silence, you get all the candy that you want.\n\nCongratulations, you solved the mystery of the stolen candy!</string>
     <string name="cotton_candy_cave_text">Ouch, you fell into the Cotton Candy Cave (- 1 HP). You are hurting from the fall but can still walk. After hours in the dark, you find your way out of the cave.. Turns out you have reached Lollipop Forest.</string>
     <string name="game_over_text">Oh no! You are out of HP. Game Over!</string>
 
