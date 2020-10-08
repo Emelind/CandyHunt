@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var hpTextView: TextView
     lateinit var titleTextView: TextView
     lateinit var mainTextView: TextView
-    lateinit var numberTextView: TextView
     lateinit var alternative1TextView: TextView
     lateinit var alternative2TextView: TextView
     lateinit var alternative3TextView: TextView
@@ -60,7 +59,6 @@ class MainActivity : AppCompatActivity() {
         // Finds TextViews in layout
         hpTextView = findViewById(R.id.hpTextView)
         mainTextView = findViewById(R.id.mainTextView)
-        numberTextView = findViewById(R.id.numberTextView)
         titleTextView = findViewById(R.id.titleTextView)
         alternative1TextView = findViewById(R.id.alternative1TextView)
         alternative2TextView = findViewById(R.id.alternative2TextView)
@@ -89,7 +87,6 @@ class MainActivity : AppCompatActivity() {
     // the numberTextView. Hides the rollDieButton.
     fun rollDie(view: View) {
         number = (1..6).random()
-        numberTextView.text = getString(R.string.you_rolled, number.toString())
         when(number) {
             1 -> dieImageView.setImageResource(R.drawable.one_die)
             2 -> dieImageView.setImageResource(R.drawable.two_die)
@@ -193,7 +190,6 @@ class MainActivity : AppCompatActivity() {
         // Changes the visibility of the rollDieButton and clears the numberTextView
         rollDieImageView.visibility = View.VISIBLE
         dieImageView.visibility = View.INVISIBLE
-        numberTextView.text = ""
 
         // Prints the location text and title according to the new location
         mainTextView.text = locationNow.text
@@ -201,7 +197,7 @@ class MainActivity : AppCompatActivity() {
 
         if(locationNow.showNameTextView){
             playerNameTextView.visibility = View.VISIBLE
-            playerNameTextView.text = locationNow.nameText + " " + playerName + ","
+            playerNameTextView.text = locationNow.nameText + playerName + ","
         } else {
             playerNameTextView.visibility = View.INVISIBLE
         }

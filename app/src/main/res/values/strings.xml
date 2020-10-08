@@ -18,8 +18,8 @@
     <string name="fish_rolled">The fish rolled: %1$s</string>
     <string name="you_won">Hurray, you won!</string>
     <string name="you_lost">Oh, no.. You lost, - 1 HP.</string>
-    <string name="dear_name">Dear</string>
-    <string name="thank_you_name">Thank you</string>
+    <string name="dear_name">Dear\u0020</string>
+    <string name="thank_you_name">Thank you\u0020</string>
 
     <!-- Special location title Strings -->
     <string name="bridge_falls_apart_title">Roll 1–3: Bridge Falls Apart</string>
