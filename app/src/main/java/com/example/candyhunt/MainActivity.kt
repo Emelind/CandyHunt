@@ -195,6 +195,7 @@ class MainActivity : AppCompatActivity() {
         mainTextView.text = locationNow.text
         titleTextView.text = locationNow.title
 
+        // Prints the playerName in playerNameTextView + greeting if showNameTextView in location == true
         if(locationNow.showNameTextView){
             playerNameTextView.visibility = View.VISIBLE
             playerNameTextView.text = locationNow.nameText + playerName + ","
@@ -217,6 +218,7 @@ class MainActivity : AppCompatActivity() {
             hpTextView.visibility = View.INVISIBLE
         }
 
+        // Changes text of continueButton if the location is endLocation == true
         if(locationNow.endLocation) {
             continueButton.text = getString(R.string.try_again_button)
         }
