@@ -1,6 +1,7 @@
 package com.example.candyhunt
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -221,6 +222,7 @@ class MainActivity : AppCompatActivity() {
         }  else {
             hpTextView.visibility = View.INVISIBLE
         }
+        setHpTextColor()
 
         // Changes text of continueButton if the location is endLocation == true
         if(locationNow.endLocation) {
@@ -298,6 +300,13 @@ class MainActivity : AppCompatActivity() {
             } else if(number == 5 || number == 6) {
                 alternative3TextView.setBackground(getDrawable(R.drawable.frame_layout))
             }
+        }
+    }
+    fun setHpTextColor() {
+        if (hp < 3) {
+            hpTextView.setTextColor(Color.parseColor("#DF0404"))
+        } else {
+            hpTextView.setTextColor(Color.parseColor("#257328"))
         }
     }
 }
