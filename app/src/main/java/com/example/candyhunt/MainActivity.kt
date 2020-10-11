@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 
+const val EXTRA_MESSAGE = "com.example.candyhunt.MESSAGE"
+
 class MainActivity : AppCompatActivity() {
 
     // DeclaringTextViews
@@ -206,7 +208,9 @@ class MainActivity : AppCompatActivity() {
         // Set the image from locationNow in imageView
         imageView.setImageDrawable(locationNow.image)
         imageView.setOnClickListener {
-            val intent = Intent(this, ShowMapActivity::class.java)
+            val intent = Intent(this, ShowMapActivity::class.java).apply {
+                putExtra(EXTRA_MESSAGE, locationNow.id.toString())
+            }
             startActivity(intent)
         }
 
