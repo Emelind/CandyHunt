@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CandyHunt</string>
+
+    <!-- Button Strings -->
+    <string name="continue_button">Fortsätt</string>
+    <string name="try_again_button">Försök igen</string>
+
+    <!-- Text Strings -->
+    <string name="next_up">Härnäst: %1$s</string>
+    <string name="roll_1_to_3">Slå 1–3: %1$s</string>
+    <string name="roll_4_to_6">Slå 4–6: %1$s</string>
+    <string name="roll_1_to_2">Slå 1–2: %1$s</string>
+    <string name="roll_3_to_4">Slå 3–4: %1$s</string>
+    <string name="roll_5_to_6">Slå 5–6: %1$s</string>
+    <string name="hp">HP: %1$s</string>
+    <string name="dear_name">Kära\u0020</string>
+    <string name="thank_you_name">Tack\u0020</string>
+    <string name="name">Namn</string>
+
+    <!-- Special location title Strings -->
+    <string name="bridge_falls_apart_title">Slå 1–3: Bron faller ihop</string>
+    <string name="cross_safely_title">Slå 4–6: Du kan gå över säkert</string>
+    <string name="harmful_title">Slå 1–3: Skadlig klunk</string>
+    <string name="energizing_title">Slå 4–6: Energigivande klunk</string>
+    <string name="to_the_candy_title">Slå 1–3: Skickar dig till godiset</string>
+    <string name="clueless_title">Slå 4–6: Skickar iväg dig ovetandes</string>
+
+    <!-- Location title Strings -->
+    <string name="immigration_form_title">Immigrationsformulär</string>
+    <string name="note_from_the_king_title">Meddelande från Kungen</string>
+    <string name="start_game_title">Starta spelet</string>
+    <string name="starting_point_title">Startpunkt</string>
+    <string name="cross_river_title">Korsa floden</string>
+    <string name="walk_to_the_mountain_title">Gå till berget</string>
+    <string name="swim_from_start_title">Simma över floden</string>
+    <string name="try_the_boat_title">Använd båten</string>
+    <string name="chocolate_mountain_title">Chokladberget</string>
+    <string name="lollipop_forest_title">Klubbskogen</string>
+    <string name="swim_from_the_mountain_title">Simma från berget</string>
+    <string name="cross_cracker_bridge_title">Gå över kexbron</string>
+    <string name="sour_snake_pit_title">Gropen med sura ormar</string>
+    <string name="caramel_lake_title">Karamellsjön</string>
+    <string name="house_of_the_wicked_witch_title">Den galna häxans hus</string>
+    <string name="hubba_bubba_hill_title">HubbaBubba-kullen</string>
+    <string name="fanta_fields_title">Fantafältet</string>
+    <string name="castle_of_the_king_title">Kungens slott</string>
+    <string name="cotton_candy_cave_title">Sockervaddsgrottan</string>
+    <string name="game_over_title">Game Over</string>
+
+    <!-- Location text Strings -->
+    <string name="immigration_form_text">Skriv in ditt namn:</string>
+    <string name="note_from_the_king_text">Vilken tur att du är här. Någon har stulit allt godis! Kan du hjälpa oss att hitta det? \n\nVi har inte mycket till vapen, men du får en tärning som kan guida dig i jakten på godiset.</string>
+    <string name="start_game_text">Du börjar med 5 HP. Spelet är slut, game over, när HP = 0. Låt godisjakten börja!\n\nLycka till!\n\n/Godiskungen</string>
+    <string name="starting_point_text">Du kan inte bestämma om du ska korsa floden eller om du ska gå till berget.\n\nLåt tärningen bestämma.</string>
+    <string name="cross_river_text">Det finns en båt vid floden men du vet inte om den fungerar som den ska. Ska du chansa och använda båten eller ska du simma över floden?</string>
+    <string name="walk_to_the_mountain_text">Du vrickade foten på väg till berget!\n\nSlå tärningen för att se om du måste gå tillbaka och försöka korsa floden istället (-1 HP), eller om du kan fortsätta till berget.</string>
+    <string name="swim_from_start_text">Du simmar lugnt över floden när en haj plötsligt dyker upp. Hajen försöker äta upp dig (-1 HP) men lyckligtvis har den inga tänder efter att ha ätit för mycket godis. Du överlever och har nått Klubbskogen.</string>
+    <string name="try_the_boat_text">Du befinner dig på båten men det visar sig att det inte går att styra den. Båten åker med strömmen en bit men krossas mot en stor sten (-1 HP)!\n\nSom tur är så befinner du sig nära land och kan simma dit.</string>
+    <string name="chocolate_mountain_text">Du har gått upp och ner för berget men har inte hittat något godis. Från toppen av berget såg du den galna häxans hus och planerar att ta dig dit. För att komma närmre behöver du korsa floden. Ska du gå över kexbron eller simma över floden? Låt tärningen bestämma.</string>
+    <string name="lollipop_forest_text">Du går omkring i klubbskogen och letar efter godiset. En arg enhörning försöker attackera dig! Om du slår 3 eller lägre så blir du attackerad (-1 HP) och enhörningen sparkar iväg dig ända till karamellsjön. Slå högre än 3 för att undvika attacken och spring bort till den galna häxans hus.</string>
+    <string name="swim_from_the_mountain_text">Du simmar över floden. Du tar en klunk och det visar sig att floden är gjord av läsk - energiboost +1 HP.</string>
+    <string name="cross_cracker_bridge_text">Du går långsamt över kexbron. Bron ger ifrån sig olustiga ljud och vinglar. Tärningen bestämmer om bron faller ihop eller om du kan gå över säkert.</string>
+    <string name="sour_snake_pit_text">Du har kommit till gropen med sura ormar. Ormarna är gamblers och vill äta upp dig. Ormarna låter din tärning bestämma om de ska äta upp dig eller låta dig gå. Om du slår 5 eller 6 så äter de upp dig och du förlorar alla dina HP - game over. Om du slår 1 till 4 så är du fri att gå och kommer till HubbaBubba-kullen.</string>
+    <string name="caramel_lake_text">Du tittar ut över karamellsjön och den ser så smaskig ut. Den galna häxan har förtrollat sjön och gjort varannan klunk karamell skadlig. Tärningen bestämmer om den klunk du tar är skadlig (-1 HP), eller energigivande (+1 HP). Om du tar en skadlig klunk så vinglar du vidare till gropen med sura ormar. Om du tar en energigivande klunk så springer du vidare till klubbskogen.</string>
+    <string name="house_of_the_wicked_witch_text">Du har kommit till den galna häxans hus. Du trodde att godiset skulle vara här, men det är det inte.. Häxan vet var godiset finns men vet inte om hon ska berätta det för dig eller inte. Häxan låter tärningen bestämma om hon ska skicka dig till godiset, eller om hon ska skicka iväg dig ovetandes.</string>
+    <string name="hubba_bubba_hill_text">Du står på toppen av HubbaBubba-kullen men inget godis så långt ögat kan se. Från toppen av kullen ser du hela vägen till den galna häxans hus och fantafältet. Låt tärningen bestämma var du ska gå härnäst.</string>
+    <string name="fanta_fields_text">Du går omkring på fantafältet och njuter av det fina vädret. På avstånd kan du se kungens slott och beslutar dig för att gå dit och berätta för kungen att du kommer sluta leta efter godiset. Det finns inte någonstans i hela kungariket..</string>
+    <string name="castle_of_the_king_text">Du har kommit fram till kungens slott. Men vänta.. Vad är det här? Slottet svämmar över med godis av alla sorter.. Det visar sig att kungen själv har gömt allt godis för att förbättra invånarnas hälsa. I utbyte mot din tystnad får du så mycket godis du vill ha.\n\nGrattis, du har löst mysteriet med det stulna godiset!</string>
+    <string name="cotton_candy_cave_text">Aj, du ramlade ner i sockervaddsgrottan (-1 HP). Du har ont från fallet men kan fortfarande gå. Efter timmar i mörkret så hittar du ut från grottan. Det visar sig att du har kommit till klubbskogen. </string>
+    <string name="game_over_text">Åh, nej! Du har slut på HP. Game over!</string>
+</resources>

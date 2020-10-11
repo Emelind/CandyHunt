@@ -52,7 +52,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Name"
+        android:hint="@string/name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/mainTextView"
         app:layout_constraintEnd_toEndOf="parent"
