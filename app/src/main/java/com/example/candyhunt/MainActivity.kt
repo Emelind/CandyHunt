@@ -5,6 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -45,12 +47,15 @@ class MainActivity : AppCompatActivity() {
     private var hp = 5
 
     private lateinit var gameManager: GameManager
+    private lateinit var animation: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         gameManager = GameManager(this)
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
 
         // Finds the gameOverLocation based on var gameOverLocation in Location
         for(location in gameManager.locations) {
@@ -86,22 +91,38 @@ class MainActivity : AppCompatActivity() {
         startNewLocation()
     }
 
-    // Rolls the die and puts the number in the number variable. Prints the number in
-    // the numberTextView. Hides the rollDieButton.
+    // Rolls the die and puts the number in the number variable. Starts animation fun.
     fun rollDie(view: View) {
         number = (1..6).random()
-        when(number) {
-            1 -> dieImageView.setImageResource(R.drawable.one_die)
-            2 -> dieImageView.setImageResource(R.drawable.two_die)
-            3 -> dieImageView.setImageResource(R.drawable.three_die)
-            4 -> dieImageView.setImageResource(R.drawable.four_die)
-            5 -> dieImageView.setImageResource(R.drawable.five_die)
-            6 -> dieImageView.setImageResource(R.drawable.six_die)
-        }
-        rollDieImageView.visibility = View.INVISIBLE
-        dieImageView.visibility = View.VISIBLE
-        continueButton.visibility = View.VISIBLE
-        frameNextLocation()
+        animation()
+    }
+
+    private fun animation() {
+        rollDieImageView.startAnimation(animation)
+
+        animation.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+
+                when(number) {
+                    1 -> dieImageView.setImageResource(R.drawable.one_die)
+                    2 -> dieImageView.setImageResource(R.drawable.two_die)
+                    3 -> dieImageView.setImageResource(R.drawable.three_die)
+                    4 -> dieImageView.setImageResource(R.drawable.four_die)
+                    5 -> dieImageView.setImageResource(R.drawable.five_die)
+                    6 -> dieImageView.setImageResource(R.drawable.six_die)
+                }
+                rollDieImageView.visibility = View.INVISIBLE
+                dieImageView.visibility = View.VISIBLE
+                continueButton.visibility = View.VISIBLE
+                frameNextLocation()
+            }
+
+            override fun onAnimationStart(animation: Animation?) {
+            }
+        })
     }
 
     // Changes the location stored in locationNow according to number rolled. Starts new location.
