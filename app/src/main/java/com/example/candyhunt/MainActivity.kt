@@ -15,36 +15,36 @@ const val EXTRA_MESSAGE = "com.example.candyhunt.MESSAGE"
 class MainActivity : AppCompatActivity() {
 
     // DeclaringTextViews
-    lateinit var hpTextView: TextView
-    lateinit var titleTextView: TextView
-    lateinit var mainTextView: TextView
-    lateinit var alternative1TextView: TextView
-    lateinit var alternative2TextView: TextView
-    lateinit var alternative3TextView: TextView
-    lateinit var playerNameTextView: TextView
+    private lateinit var hpTextView: TextView
+    private lateinit var titleTextView: TextView
+    private lateinit var mainTextView: TextView
+    private lateinit var alternative1TextView: TextView
+    private lateinit var alternative2TextView: TextView
+    private lateinit var alternative3TextView: TextView
+    private lateinit var playerNameTextView: TextView
 
     // Declaring EditText
-    lateinit var playerNameEditText: EditText
+    private lateinit var playerNameEditText: EditText
 
     // Declaring ImageView
-    lateinit var imageView: ImageView
-    lateinit var rollDieImageView: ImageView
-    lateinit var dieImageView: ImageView
+    private lateinit var imageView: ImageView
+    private lateinit var rollDieImageView: ImageView
+    private lateinit var dieImageView: ImageView
 
     // Declaring Buttons
-    lateinit var continueButton: Button
+    private lateinit var continueButton: Button
 
     // Declaring other variables
-    var number = 0
-    var playerName = ""
-    lateinit var locationNow: Location
-    lateinit var gameOverLocation: Location
-    var alternative1: Int = -1
-    var alternative2: Int = -1
-    var alternative3: Int = -1
-    var hp = 5
+    private var number = 0
+    private var playerName = ""
+    private lateinit var locationNow: Location
+    private lateinit var gameOverLocation: Location
+    private var alternative1: Int = -1
+    private var alternative2: Int = -1
+    private var alternative3: Int = -1
+    private var hp = 5
 
-    lateinit var gameManager: GameManager
+    private lateinit var gameManager: GameManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -188,7 +188,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Starts the new location
-    fun startNewLocation() {
+    private fun startNewLocation() {
 
         // Changes the visibility of the rollDieButton and clears the numberTextView
         rollDieImageView.visibility = View.VISIBLE
@@ -219,10 +219,10 @@ class MainActivity : AppCompatActivity() {
         if (locationNow.showHp) {
             hpTextView.visibility = View.VISIBLE
             hpTextView.text = getString(R.string.hp, hp.toString())
+            setHpTextColor()
         }  else {
             hpTextView.visibility = View.INVISIBLE
         }
-        setHpTextColor()
 
         // Changes text of continueButton if the location is endLocation == true
         if(locationNow.endLocation) {
@@ -279,7 +279,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun frameNextLocation() {
+    private fun frameNextLocation() {
         if(locationNow.alternatives.size == 1) {
             alternative1TextView.setBackground(getDrawable(R.drawable.frame_layout))
 
@@ -302,7 +302,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    fun setHpTextColor() {
+    private fun setHpTextColor() {
         if (hp < 3) {
             hpTextView.setTextColor(Color.parseColor("#DF0404"))
         } else {
