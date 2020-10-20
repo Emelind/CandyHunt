@@ -12,15 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textColor="@color/design_default_color_on_secondary"
-        tools:text="Title TextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:text="Title TextView" />
 
     <TextView
         android:id="@+id/playerNameTextView"
-        tools:text="PlayerName TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -28,7 +27,8 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        tools:text="PlayerName TextView" />
 
     <TextView
         android:id="@+id/mainTextView"
@@ -40,10 +40,10 @@
         app:autoSizeMaxTextSize="18sp"
         app:autoSizeMinTextSize="12sp"
         app:autoSizeTextType="uniform"
-        tools:text="Main TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/playerNameTextView"
+        tools:text="Main TextView" />
 
     <EditText
         android:id="@+id/playerNameEditText"
@@ -62,7 +62,6 @@
 
     <TextView
         android:id="@+id/alternative1TextView"
-        tools:text="Alternative 1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -70,11 +69,11 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/mainTextView"
+        tools:text="Alternative 1" />
 
     <TextView
         android:id="@+id/alternative2TextView"
-        tools:text="Alternative 2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -83,11 +82,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alternative1TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/alternative1TextView"
+        tools:text="Alternative 2" />
 
     <TextView
         android:id="@+id/alternative3TextView"
-        tools:text="Alternative 3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -96,35 +95,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alternative2TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/alternative2TextView"
+        tools:text="Alternative 3" />
 
     <Button
         android:id="@+id/continueButton"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/green_dark"
         android:onClick="continueButton"
         android:text="@string/continue_button"
-        android:textColor="@color/design_default_color_on_primary"
+        android:textColor="@color/design_default_color_on_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/hpTextView"
-        tools:text="HP: X"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:background="@android:drawable/dialog_holo_light_frame"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
+        android:textAlignment="center"
         android:textColor="@color/design_default_color_on_secondary"
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:text="HP: X" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -150,26 +151,25 @@
         android:id="@+id/rollDieImageView"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:elevation="5dp"
+        android:layout_marginBottom="16dp"
         android:onClick="rollDie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alternative3TextView"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/roll_die" />
 
     <ImageView
         android:id="@+id/dieImageView"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alternative3TextView"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/one_die" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.candyhunt
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 const val EXTRA_MESSAGE = "com.example.candyhunt.MESSAGE"
 
@@ -209,6 +211,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Starts the new location
+    @SuppressLint("SetTextI18n")
     private fun startNewLocation() {
 
         // Changes the visibility of the rollDieButton and clears the numberTextView
@@ -300,6 +303,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun frameNextLocation() {
         if(locationNow.alternatives.size == 1) {
             alternative1TextView.setBackground(getDrawable(R.drawable.frame_layout))
@@ -327,7 +331,8 @@ class MainActivity : AppCompatActivity() {
         if (hp < 3) {
             hpTextView.setTextColor(Color.parseColor("#DF0404"))
         } else {
-            hpTextView.setTextColor(Color.parseColor("#257328"))
+            hpTextView.setTextColor(Color.parseColor("#519657"))
+            //hpTextView.setBackgroundColor(Color.parseColor("#81c784"))
         }
     }
 }
