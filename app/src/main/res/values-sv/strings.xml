@@ -18,6 +18,17 @@
     <string name="thank_you_name">Tack\u0020</string>
     <string name="name">Namn</string>
 
+    <!-- Content descriptions -->
+    <string name="title">Titel</string>
+    <string name="story">Berättelse</string>
+    <string name="greeting">Hälsning</string>
+    <string name="alternative_1">Alternativ 1</string>
+    <string name="alternative_2">Alternativ 2</string>
+    <string name="alternative_3">Alternativ 3</string>
+    <string name="hp_view">HP vy</string>
+    <string name="roll_die">Slå tärningen</string>
+    <string name="die">Tärning</string>
+
     <!-- Special location title Strings -->
     <string name="bridge_falls_apart_title">Slå 1–3: Bron faller ihop</string>
     <string name="cross_safely_title">Slå 4–6: Du kan gå över säkert</string>

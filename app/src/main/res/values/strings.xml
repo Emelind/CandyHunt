@@ -17,6 +17,17 @@
     <string name="thank_you_name">Thank you\u0020</string>
     <string name="name">Name</string>
 
+    <!-- Content descriptions -->
+    <string name="title">Title</string>
+    <string name="story">Story</string>
+    <string name="greeting">Greeting</string>
+    <string name="alternative_1">Alternative 1</string>
+    <string name="alternative_2">Alternative 2</string>
+    <string name="alternative_3">Alternative 3</string>
+    <string name="hp_view">HP view</string>
+    <string name="roll_die">Roll die</string>
+    <string name="die">Die</string>
+
     <!-- Special location title Strings -->
     <string name="bridge_falls_apart_title">Roll 1–3: Bridge falls apart</string>
     <string name="cross_safely_title">Roll 4–6: You can cross safely</string>
@@ -68,5 +79,7 @@
     <string name="castle_of_the_king_text">You have reached the Castle of the King. But wait.. What is this? The castle is overflowing with candy of all sorts.. Turns out that the King has been hiding the candy all along to improve the health of the residents in Candy Land. In exchange for your silence, you get all the candy that you want.\n\nCongratulations, you solved the mystery of the stolen candy!</string>
     <string name="cotton_candy_cave_text">Ouch, you fell into the Cotton Candy Cave (-1 HP). You are hurting from the fall but can still walk. After hours in the dark, you find your way out of the cave.. Turns out you have reached Lollipop Forest.</string>
     <string name="game_over_text">Oh no! You are out of HP. Game Over!</string>
+
+
 
 </resources>
