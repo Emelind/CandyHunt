@@ -40,13 +40,14 @@
             android:backgroundTint="@color/green_dark"
             android:clickable="true"
             android:elevation="6dp"
+            android:focusable="true"
             app:borderWidth="1dp"
+            app:fabSize="auto"
             app:hoveredFocusedTranslationZ="2dp"
             app:layout_constraintStart_toStartOf="@id/cardView2"
             app:layout_constraintTop_toTopOf="@id/cardView2"
             app:rippleColor="@android:color/black"
-            app:srcCompat="@drawable/ic_baseline_close_24"
-            android:focusable="true" />
+            app:srcCompat="@drawable/ic_baseline_close_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

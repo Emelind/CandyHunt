@@ -330,8 +330,8 @@ class MainActivity : AppCompatActivity() {
         if (hp < 3) {
             hpTextView.setTextColor(Color.parseColor("#DF0404"))
         } else {
-            hpTextView.setTextColor(Color.parseColor("#519657"))
-            //hpTextView.setBackgroundColor(Color.parseColor("#81c784"))
+            hpTextView.setTextColor(Color.parseColor("#000000"))
+            //hpTextView.setTextColor(Color.parseColor("#519657"))
         }
     }
 }
